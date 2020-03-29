@@ -1,0 +1,15 @@
+[Inputs]
+Reset
+Up
+Down
+ScoreInc
+SpeedUp
+SpeedDown
+SizeUp
+SizeDown
+Clk
+[Outputs]
+=Score[3:0]=
+=Position[7:0]=
+=Size[7:0]=
+[BiDir]

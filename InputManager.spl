@@ -1,0 +1,12 @@
+[Inputs]
+PS2_Clk
+PS2_Data
+Clk
+[Outputs]
+Reset
+Pause
+Up_P1
+Down_P1
+Up_P2
+Down_P2
+[BiDir]

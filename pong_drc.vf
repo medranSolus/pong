@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : pong_drc.vf
+// /___/   /\     Timestamp : 03/30/2020 00:49:04
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/sch2hdl -intstyle ise -family spartan3e -verilog pong_drc.vf -w /home/medran/Desktop/pong/pong.sch
+//Design Name: pong
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module pong(Clk, 
+            PS2_Clk, 
+            PS2_Data);
+
+    input Clk;
+    input PS2_Clk;
+    input PS2_Data;
+   
+   wire XLXN_10;
+   wire XLXN_12;
+   wire XLXN_13;
+   wire XLXN_14;
+   wire XLXN_15;
+   
+   InputManager  Input (.Clk(Clk), 
+                       .PS2_Clk(PS2_Clk), 
+                       .PS2_Data(PS2_Data), 
+                       .Down_P1(XLXN_13), 
+                       .Down_P2(XLXN_15), 
+                       .Pause(), 
+                       .Reset(XLXN_10), 
+                       .Up_P1(XLXN_12), 
+                       .Up_P2(XLXN_14));
+   Player  Player1 (.Clk(Clk), 
+                   .Down(XLXN_13), 
+                   .Reset(XLXN_10), 
+                   .ScoreInc(), 
+                   .SizeDown(), 
+                   .SizeUp(), 
+                   .SpeedDown(), 
+                   .SpeedUp(), 
+                   .Up(XLXN_12), 
+                   .Position(), 
+                   .Score(), 
+                   .Size());
+   Player  Player2 (.Clk(Clk), 
+                   .Down(XLXN_15), 
+                   .Reset(XLXN_10), 
+                   .ScoreInc(), 
+                   .SizeDown(), 
+                   .SizeUp(), 
+                   .SpeedDown(), 
+                   .SpeedUp(), 
+                   .Up(XLXN_14), 
+                   .Position(), 
+                   .Score(), 
+                   .Size());
+endmodule

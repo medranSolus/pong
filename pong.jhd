@@ -1,1 +1,7 @@
 MODULE pong
+	SUBMODULE InputManager
+		INSTANCE Input
+	SUBMODULE Player
+		INSTANCE Player1
+	SUBMODULE Player
+		INSTANCE Player2

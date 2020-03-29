@@ -41,6 +41,35 @@
 *_summary.xml
 *_usage.xml
 *_xst.xrpt
+*.log
+*.svf
+*.scr
+*.cmd
+*.bak
+*.elf
+*.ace
+*~
+*#
+*.swp
+*.ini
+*.html
+*.vhi
+*.wdb
+*.xmsgs
+*.xreport
+*.exe
+*_beh.prj
+isim
+db
+incremental_db
+work
+*.cr.mti
+vsim.wlf
+transcript
+pepExtractor.prj
+
+Thumbs.db
+.DS_Store
 
 # iMPACT generated files
 _impactbatch.log
