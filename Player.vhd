@@ -37,52 +37,76 @@ entity Player is
 end Player;
 
 architecture PlayerArch of Player is
-	constant max_position : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Set according to display
 	constant max_speed : UNSIGNED(7 downto 0) := X"10"; -- TODO: Set according to gameplay
 	constant max_size : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Check proper max size later
+	constant max_position : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Set according to display
 	
 	signal score_int : UNSIGNED(3 downto 0) := X"0";
-	signal position_int : UNSIGNED(7 downto 0) := X"7F";
 	signal speed_int : UNSIGNED(7 downto 0) := X"01";
 	signal size_int : UNSIGNED(7 downto 0) := X"00"; -- TODO: Set default size for display
+	signal position_int : UNSIGNED(7 downto 0) := X"7F";
 begin
 	Score <= score_int;
-	Position <= position_int;
 	Size <= size_int;
+	Position <= position_int;
 	
-	process(Clk, Reset, ScoreInc, SpeedUp, SpeedDown, SizeUp, SizeDown, Up, Down)
+	process(Clk, Reset, ScoreInc)
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
 				score_int <= X"0";
-				position_int <= X"7F";
-				speed_int <= X"01";
-				size_int <= X"00";
 			else
 				if ScoreInc = '1' and score_int < X"9" then
 					score_int <= score_int + 1;
 				end if;
-				
+			end if;
+		end if;
+	end process;
+	
+	process(Clk, Reset, SpeedUp, SpeedDown)
+	begin
+		if rising_edge(Clk) then
+			if Reset = '1' then
+				speed_int <= X"01";
+			else
 				if SpeedUp = '1' and speed_int < max_speed then
 					speed_int <= speed_int + 1;
 				end if;
 				if SpeedDown = '1' and speed_int > X"01" then
 					speed_int <= speed_int - 1;
 				end if;
-				
+			end if;
+		end if;
+	end process;
+	
+	process(Clk, Reset, SizeUp, SizeDown)
+	begin
+		if rising_edge(Clk) then
+			if Reset = '1' then
+				size_int <= X"00";
+			else
 				if SizeUp = '1' and size_int < max_size then
 					size_int <= size_int + 1;
 				end if;
 				if SizeDown = '1' and size_int > X"00" then
 					size_int <= size_int - 1;
-				end if;
-				
+				end if;			
+			end if;
+		end if;
+	end process;
+	
+	process(Clk, Reset, Up, Down)
+	begin
+		if rising_edge(Clk) then
+			if Reset = '1' then
+				position_int <= X"7F";
+			else
 				if Up = '1' and position_int + size_int <= max_position - speed_int then
 					position_int <= position_int + speed_int;
 				end if;
 				if Down = '1' and position_int >= speed_int + size_int then
 					position_int <= position_int - speed_int;
-				end if;
+				end if;			
 			end if;
 		end if;
 	end process;

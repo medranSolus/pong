@@ -79,19 +79,9 @@ BEGIN
           Size => Size
         );
 	Clk <= not Clk after Clk_period / 2;
-	
-	process(Clk)
-	begin
-		if rising_edge(Clk) then
-			ScoreInc <= '1';
-			Up <= '1';
-			SpeedUp <= '1';
-			SizeUp <= '1';
-		else
-			ScoreInc <= '0';
-			Up <= '0';
-			SpeedUp <= '0';
-			SizeUp <= '0';
-		end if;
-	end process;
+	ScoreInc <= not ScoreInc after Clk_period;
+	Up <= not Up after Clk_period;
+	SpeedUp <= not SpeedUp after Clk_period;
+	SizeUp <= not SizeUp after Clk_period;
+
 END;
