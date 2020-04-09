@@ -37,6 +37,8 @@ entity CollisionManager is
 		  PlayerRightSize : in UNSIGNED(7 downto 0);
 		  PowerUpActive : in STD_LOGIC;
 		  PowerUpType : in STD_LOGIC_VECTOR(2 downto 0);
+		  PowerUpPositionY : in UNSIGNED(7 downto 0);
+		  PowerUpPositionX : in UNSIGNED(7 downto 0);
 		  SetBallVector : out STD_LOGIC;
 		  NewBallVector : out STD_LOGIC_VECTOR(1 downto 0);
 		  BallSpeedUp : out STD_LOGIC;

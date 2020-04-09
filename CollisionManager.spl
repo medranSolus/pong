@@ -11,6 +11,8 @@ PowerUpActive
 =PlayerRightPosition[7:0]=
 =PlayerRightSize[7:0]=
 =PowerUpType[2:0]=
+=PowerUpPositionY[7:0]=
+=PowerUpPositionX[7:0]=
 [Outputs]
 SetBallVector
 BallSpeedUp
