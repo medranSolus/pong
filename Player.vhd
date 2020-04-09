@@ -20,8 +20,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Player is
 	port (Reset : in STD_LOGIC;
@@ -52,7 +50,7 @@ begin
 	Position <= position_int;
 	Size <= size_int;
 	
-	process(Clk)
+	process(Clk, Reset, ScoreInc, SpeedUp, SpeedDown, SizeUp, SizeDown, Up, Down)
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
@@ -67,19 +65,22 @@ begin
 				
 				if SpeedUp = '1' and speed_int < max_speed then
 					speed_int <= speed_int + 1;
-				elsif SpeedDown = '1' and speed_int > X"01" then
+				end if;
+				if SpeedDown = '1' and speed_int > X"01" then
 					speed_int <= speed_int - 1;
 				end if;
 				
 				if SizeUp = '1' and size_int < max_size then
 					size_int <= size_int + 1;
-				elsif SizeDown = '1' and size_int > X"00" then
+				end if;
+				if SizeDown = '1' and size_int > X"00" then
 					size_int <= size_int - 1;
 				end if;
 				
 				if Up = '1' and position_int + size_int <= max_position - speed_int then
 					position_int <= position_int + speed_int;
-				elsif Down = '1' and position_int >= speed_int + size_int then
+				end if;
+				if Down = '1' and position_int >= speed_int + size_int then
 					position_int <= position_int - speed_int;
 				end if;
 			end if;
