@@ -31,6 +31,7 @@ entity Ball is
 		  SizeUp : in STD_LOGIC;
 		  SizeDown : in STD_LOGIC;
 		  Clk : in STD_LOGIC;
+		  Speed : out UNSIGNED(7 downto 0);
 		  Size : out UNSIGNED(7 downto 0);
 		  PositionY : out UNSIGNED(7 downto 0);
 		  PositionX : out UNSIGNED(7 downto 0);
@@ -41,12 +42,13 @@ architecture BallArch of Ball is
 	constant max_speed : UNSIGNED(7 downto 0) := X"10"; -- TODO: Set according to gameplay
 	constant max_size : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Check proper max size later
 	
-	signal speed : UNSIGNED(7 downto 0) := X"01";
+	signal speed_int : UNSIGNED(7 downto 0) := X"01";
 	signal size_int : UNSIGNED(7 downto 0) := X"00";
 	signal positionY_int : UNSIGNED(7 downto 0) := X"80";
 	signal positionX_int : UNSIGNED(7 downto 0) := X"80";
 	signal moveVector : STD_LOGIC_VECTOR(1 downto 0) := "10";
 begin
+	Speed <= speed_int;
 	Size <= size_int;
 	PositionY <= positionY_int;
 	PositionX <= positionX_int;
@@ -56,14 +58,14 @@ begin
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
-				speed <= X"01";
+				speed_int <= X"01";
 				size_int <= X"00";
 			else
-				if SpeedUp = '1' and speed < max_speed then
-					speed <= speed + 1;
+				if SpeedUp = '1' and speed_int < max_speed then
+					speed_int <= speed_int + 1;
 				end if;
-				if SpeedDown = '1' and speed > X"00" then
-					speed <= speed - 1;
+				if SpeedDown = '1' and speed_int > X"00" then
+					speed_int <= speed_int - 1;
 				end if;
 				if SizeUp = '1' and size_int < max_size then
 					size_int <= size_int + 1;
@@ -87,17 +89,17 @@ begin
 			elsif Stop = '0' then
 				case moveVector is
 					when "00" =>
-						positionY_int <= positionY_int - speed;
-						positionX_int <= positionX_int - speed;
+						positionY_int <= positionY_int - speed_int;
+						positionX_int <= positionX_int - speed_int;
 					when "10" =>
-						positionY_int <= positionY_int + speed;
-						positionX_int <= positionX_int - speed;
+						positionY_int <= positionY_int + speed_int;
+						positionX_int <= positionX_int - speed_int;
 					when "01" =>
-						positionY_int <= positionY_int - speed;
-						positionX_int <= positionX_int + speed;
+						positionY_int <= positionY_int - speed_int;
+						positionX_int <= positionX_int + speed_int;
 					when "11" =>
-						positionY_int <= positionY_int + speed;
-						positionX_int <= positionX_int + speed;
+						positionY_int <= positionY_int + speed_int;
+						positionX_int <= positionX_int + speed_int;
 					when others =>
 						positionY_int <= X"80";
 						positionX_int <= X"80";

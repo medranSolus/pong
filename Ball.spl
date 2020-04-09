@@ -9,6 +9,7 @@ SizeDown
 Clk
 =InputVector[1:0]=
 [Outputs]
+=Speed[7:0]=
 =Size[7:0]=
 =PositionY[7:0]=
 =PositionX[7:0]=

@@ -34,14 +34,15 @@
         <signal name="XLXN_43" />
         <signal name="XLXN_44" />
         <signal name="XLXN_45(1:0)" />
-        <signal name="XLXN_46(7:0)" />
-        <signal name="XLXN_47(7:0)" />
-        <signal name="XLXN_49(7:0)" />
-        <signal name="XLXN_50(7:0)" />
-        <signal name="XLXN_51(7:0)" />
-        <signal name="XLXN_52(7:0)" />
-        <signal name="XLXN_53(7:0)" />
-        <signal name="XLXN_54(1:0)" />
+        <signal name="XLXN_55(1:0)" />
+        <signal name="XLXN_56(7:0)" />
+        <signal name="XLXN_57(7:0)" />
+        <signal name="XLXN_58(7:0)" />
+        <signal name="XLXN_60(7:0)" />
+        <signal name="XLXN_61(7:0)" />
+        <signal name="XLXN_62(7:0)" />
+        <signal name="XLXN_63(7:0)" />
+        <signal name="XLXN_64(7:0)" />
         <port polarity="Input" name="PS2_Data" />
         <port polarity="Input" name="PS2_Clk" />
         <port polarity="Input" name="Clk" />
@@ -78,7 +79,7 @@
             <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <blockdef name="CollisionManager">
-            <timestamp>2020-4-9T18:20:47</timestamp>
+            <timestamp>2020-4-9T18:45:4</timestamp>
             <rect width="496" x="64" y="-1088" height="1088" />
             <line x2="0" y1="-1056" y2="-1056" x1="64" />
             <line x2="0" y1="-992" y2="-992" x1="64" />
@@ -105,6 +106,8 @@
             <line x2="0" y1="-288" y2="-288" x1="64" />
             <rect width="64" x="0" y="-236" height="24" />
             <line x2="0" y1="-224" y2="-224" x1="64" />
+            <rect width="64" x="0" y="-172" height="24" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="624" y1="-1056" y2="-1056" x1="560" />
             <line x2="624" y1="-992" y2="-992" x1="560" />
             <line x2="624" y1="-928" y2="-928" x1="560" />
@@ -125,7 +128,7 @@
             <line x2="624" y1="-32" y2="-32" x1="560" />
         </blockdef>
         <blockdef name="Ball">
-            <timestamp>2020-4-9T17:17:53</timestamp>
+            <timestamp>2020-4-9T18:44:48</timestamp>
             <rect width="368" x="64" y="-576" height="576" />
             <line x2="0" y1="-544" y2="-544" x1="64" />
             <line x2="0" y1="-480" y2="-480" x1="64" />
@@ -139,12 +142,14 @@
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <rect width="64" x="432" y="-556" height="24" />
             <line x2="496" y1="-544" y2="-544" x1="432" />
-            <rect width="64" x="432" y="-396" height="24" />
-            <line x2="496" y1="-384" y2="-384" x1="432" />
-            <rect width="64" x="432" y="-236" height="24" />
-            <line x2="496" y1="-224" y2="-224" x1="432" />
-            <rect width="64" x="432" y="-76" height="24" />
-            <line x2="496" y1="-64" y2="-64" x1="432" />
+            <rect width="64" x="432" y="-428" height="24" />
+            <line x2="496" y1="-416" y2="-416" x1="432" />
+            <rect width="64" x="432" y="-300" height="24" />
+            <line x2="496" y1="-288" y2="-288" x1="432" />
+            <rect width="64" x="432" y="-172" height="24" />
+            <line x2="496" y1="-160" y2="-160" x1="432" />
+            <rect width="64" x="432" y="-44" height="24" />
+            <line x2="496" y1="-32" y2="-32" x1="432" />
         </blockdef>
         <block symbolname="Player" name="Player1">
             <blockpin signalname="XLXN_10" name="Reset" />
@@ -157,8 +162,8 @@
             <blockpin signalname="XLXN_25" name="SizeDown" />
             <blockpin signalname="Clk" name="Clk" />
             <blockpin name="Score(3:0)" />
-            <blockpin signalname="XLXN_46(7:0)" name="Position(7:0)" />
-            <blockpin signalname="XLXN_47(7:0)" name="Size(7:0)" />
+            <blockpin signalname="XLXN_61(7:0)" name="Position(7:0)" />
+            <blockpin signalname="XLXN_62(7:0)" name="Size(7:0)" />
         </block>
         <block symbolname="Player" name="Player2">
             <blockpin signalname="XLXN_10" name="Reset" />
@@ -171,8 +176,8 @@
             <blockpin signalname="XLXN_30" name="SizeDown" />
             <blockpin signalname="Clk" name="Clk" />
             <blockpin name="Score(3:0)" />
-            <blockpin signalname="XLXN_49(7:0)" name="Position(7:0)" />
-            <blockpin signalname="XLXN_50(7:0)" name="Size(7:0)" />
+            <blockpin signalname="XLXN_63(7:0)" name="Position(7:0)" />
+            <blockpin signalname="XLXN_64(7:0)" name="Size(7:0)" />
         </block>
         <block symbolname="InputManager" name="Input">
             <blockpin signalname="PS2_Clk" name="PS2_Clk" />
@@ -189,14 +194,15 @@
             <blockpin signalname="Clk" name="Clk" />
             <blockpin name="Reset" />
             <blockpin name="PowerUpActive" />
-            <blockpin signalname="XLXN_54(1:0)" name="BallVector(1:0)" />
-            <blockpin signalname="XLXN_53(7:0)" name="BallSize(7:0)" />
-            <blockpin signalname="XLXN_52(7:0)" name="BallPositionY(7:0)" />
-            <blockpin signalname="XLXN_51(7:0)" name="BallPositionX(7:0)" />
-            <blockpin signalname="XLXN_46(7:0)" name="PlayerLeftPosition(7:0)" />
-            <blockpin signalname="XLXN_47(7:0)" name="PlayerLeftSize(7:0)" />
-            <blockpin signalname="XLXN_49(7:0)" name="PlayerRightPosition(7:0)" />
-            <blockpin signalname="XLXN_50(7:0)" name="PlayerRightSize(7:0)" />
+            <blockpin signalname="XLXN_55(1:0)" name="BallVector(1:0)" />
+            <blockpin signalname="XLXN_58(7:0)" name="BallSize(7:0)" />
+            <blockpin signalname="XLXN_60(7:0)" name="BallSpeed(7:0)" />
+            <blockpin signalname="XLXN_57(7:0)" name="BallPositionY(7:0)" />
+            <blockpin signalname="XLXN_56(7:0)" name="BallPositionX(7:0)" />
+            <blockpin signalname="XLXN_61(7:0)" name="PlayerLeftPosition(7:0)" />
+            <blockpin signalname="XLXN_62(7:0)" name="PlayerLeftSize(7:0)" />
+            <blockpin signalname="XLXN_63(7:0)" name="PlayerRightPosition(7:0)" />
+            <blockpin signalname="XLXN_64(7:0)" name="PlayerRightSize(7:0)" />
             <blockpin name="PowerUpType(2:0)" />
             <blockpin name="PowerUpPositionY(7:0)" />
             <blockpin name="PowerUpPositionX(7:0)" />
@@ -228,10 +234,11 @@
             <blockpin signalname="XLXN_44" name="SizeDown" />
             <blockpin signalname="Clk" name="Clk" />
             <blockpin signalname="XLXN_45(1:0)" name="InputVector(1:0)" />
-            <blockpin signalname="XLXN_53(7:0)" name="Size(7:0)" />
-            <blockpin signalname="XLXN_52(7:0)" name="PositionY(7:0)" />
-            <blockpin signalname="XLXN_51(7:0)" name="PositionX(7:0)" />
-            <blockpin signalname="XLXN_54(1:0)" name="CurrentVector(1:0)" />
+            <blockpin signalname="XLXN_60(7:0)" name="Speed(7:0)" />
+            <blockpin signalname="XLXN_58(7:0)" name="Size(7:0)" />
+            <blockpin signalname="XLXN_57(7:0)" name="PositionY(7:0)" />
+            <blockpin signalname="XLXN_56(7:0)" name="PositionX(7:0)" />
+            <blockpin signalname="XLXN_55(1:0)" name="CurrentVector(1:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -412,51 +419,60 @@
             <wire x2="2512" y1="1136" y2="1136" x1="2336" />
             <wire x2="2512" y1="1136" y2="2096" x1="2512" />
         </branch>
-        <branch name="XLXN_46(7:0)">
-            <wire x2="1440" y1="368" y2="368" x1="1184" />
-            <wire x2="1440" y1="368" y2="560" x1="1440" />
-            <wire x2="1712" y1="560" y2="560" x1="1440" />
-        </branch>
-        <branch name="XLXN_47(7:0)">
-            <wire x2="1712" y1="624" y2="624" x1="1184" />
-        </branch>
-        <branch name="XLXN_49(7:0)">
-            <wire x2="1440" y1="1040" y2="1040" x1="1184" />
-            <wire x2="1440" y1="688" y2="1040" x1="1440" />
-            <wire x2="1712" y1="688" y2="688" x1="1440" />
-        </branch>
-        <branch name="XLXN_50(7:0)">
-            <wire x2="1456" y1="1296" y2="1296" x1="1184" />
-            <wire x2="1456" y1="752" y2="1296" x1="1456" />
-            <wire x2="1712" y1="752" y2="752" x1="1456" />
-        </branch>
-        <branch name="XLXN_51(7:0)">
-            <wire x2="1712" y1="496" y2="496" x1="1648" />
-            <wire x2="1648" y1="496" y2="1232" x1="1648" />
+        <branch name="XLXN_55(1:0)">
+            <wire x2="1712" y1="304" y2="304" x1="1648" />
+            <wire x2="1648" y1="304" y2="1232" x1="1648" />
             <wire x2="2480" y1="1232" y2="1232" x1="1648" />
-            <wire x2="2480" y1="1232" y2="1744" x1="2480" />
-            <wire x2="2480" y1="1744" y2="1744" x1="2336" />
+            <wire x2="2480" y1="1232" y2="1936" x1="2480" />
+            <wire x2="2480" y1="1936" y2="1936" x1="2336" />
         </branch>
-        <branch name="XLXN_52(7:0)">
-            <wire x2="1712" y1="432" y2="432" x1="1664" />
-            <wire x2="1664" y1="432" y2="1216" x1="1664" />
+        <branch name="XLXN_56(7:0)">
+            <wire x2="1712" y1="560" y2="560" x1="1664" />
+            <wire x2="1664" y1="560" y2="1216" x1="1664" />
             <wire x2="2464" y1="1216" y2="1216" x1="1664" />
-            <wire x2="2464" y1="1216" y2="1584" x1="2464" />
-            <wire x2="2464" y1="1584" y2="1584" x1="2336" />
+            <wire x2="2464" y1="1216" y2="1808" x1="2464" />
+            <wire x2="2464" y1="1808" y2="1808" x1="2336" />
         </branch>
-        <branch name="XLXN_53(7:0)">
-            <wire x2="1712" y1="368" y2="368" x1="1696" />
-            <wire x2="1696" y1="368" y2="1184" x1="1696" />
+        <branch name="XLXN_57(7:0)">
+            <wire x2="1712" y1="496" y2="496" x1="1696" />
+            <wire x2="1696" y1="496" y2="1184" x1="1696" />
             <wire x2="2640" y1="1184" y2="1184" x1="1696" />
-            <wire x2="2640" y1="1184" y2="1424" x1="2640" />
-            <wire x2="2640" y1="1424" y2="1424" x1="2336" />
+            <wire x2="2640" y1="1184" y2="1680" x1="2640" />
+            <wire x2="2640" y1="1680" y2="1680" x1="2336" />
         </branch>
-        <branch name="XLXN_54(1:0)">
-            <wire x2="1712" y1="304" y2="304" x1="1680" />
-            <wire x2="1680" y1="304" y2="1248" x1="1680" />
-            <wire x2="2448" y1="1248" y2="1248" x1="1680" />
-            <wire x2="2448" y1="1248" y2="1904" x1="2448" />
-            <wire x2="2448" y1="1904" y2="1904" x1="2336" />
+        <branch name="XLXN_58(7:0)">
+            <wire x2="1712" y1="368" y2="368" x1="1680" />
+            <wire x2="1680" y1="368" y2="1200" x1="1680" />
+            <wire x2="2624" y1="1200" y2="1200" x1="1680" />
+            <wire x2="2624" y1="1200" y2="1552" x1="2624" />
+            <wire x2="2624" y1="1552" y2="1552" x1="2336" />
+        </branch>
+        <branch name="XLXN_60(7:0)">
+            <wire x2="1712" y1="432" y2="432" x1="1584" />
+            <wire x2="1584" y1="432" y2="1248" x1="1584" />
+            <wire x2="2608" y1="1248" y2="1248" x1="1584" />
+            <wire x2="2608" y1="1248" y2="1424" x1="2608" />
+            <wire x2="2608" y1="1424" y2="1424" x1="2336" />
+        </branch>
+        <branch name="XLXN_61(7:0)">
+            <wire x2="1440" y1="368" y2="368" x1="1184" />
+            <wire x2="1440" y1="368" y2="624" x1="1440" />
+            <wire x2="1712" y1="624" y2="624" x1="1440" />
+        </branch>
+        <branch name="XLXN_62(7:0)">
+            <wire x2="1424" y1="624" y2="624" x1="1184" />
+            <wire x2="1424" y1="624" y2="688" x1="1424" />
+            <wire x2="1712" y1="688" y2="688" x1="1424" />
+        </branch>
+        <branch name="XLXN_63(7:0)">
+            <wire x2="1440" y1="1040" y2="1040" x1="1184" />
+            <wire x2="1440" y1="752" y2="1040" x1="1440" />
+            <wire x2="1712" y1="752" y2="752" x1="1440" />
+        </branch>
+        <branch name="XLXN_64(7:0)">
+            <wire x2="1456" y1="1296" y2="1296" x1="1184" />
+            <wire x2="1456" y1="816" y2="1296" x1="1456" />
+            <wire x2="1712" y1="816" y2="816" x1="1456" />
         </branch>
     </sheet>
 </drawing>

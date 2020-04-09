@@ -4,6 +4,7 @@ Reset
 PowerUpActive
 =BallVector[1:0]=
 =BallSize[7:0]=
+=BallSpeed[7:0]=
 =BallPositionY[7:0]=
 =BallPositionX[7:0]=
 =PlayerLeftPosition[7:0]=

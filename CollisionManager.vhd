@@ -29,6 +29,7 @@ entity CollisionManager is
 		  Reset : in STD_LOGIC;
 		  BallVector : in STD_LOGIC_VECTOR(1 downto 0);
 		  BallSize : in UNSIGNED(7 downto 0);
+		  BallSpeed : in UNSIGNED(7 downto 0);
 		  BallPositionY : in UNSIGNED(7 downto 0);
 		  BallPositionX : in UNSIGNED(7 downto 0);
 		  PlayerLeftPosition : in UNSIGNED(7 downto 0);
