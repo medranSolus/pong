@@ -25,9 +25,6 @@ entity Ball is
 	port(Reset : in STD_LOGIC;
 		  SetVector : in STD_LOGIC;
 		  InputVector : in STD_LOGIC_VECTOR(1 downto 0); -- First bit up(1)-down(0), second right(1)-left(0), ex: "10" = Up left
-		  SetPosition : in STD_LOGIC;
-		  InputPositionY : in UNSIGNED(7 downto 0);
-		  InputPositionX : in UNSIGNED(7 downto 0);
 		  Stop : in STD_LOGIC;
 		  SpeedUp : in STD_LOGIC;
 		  SpeedDown : in STD_LOGIC;
@@ -78,17 +75,16 @@ begin
 		end if;
 	end process;
 	
-	process(Clk, Reset, SetVector, SetPosition)
+	process(Clk, Reset, SetVector)
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' or SetVector = '1' then
 				moveVector <= InputVector;
 			end if;
-			if Reset = '1' or SetPosition = '1' then
-				positionY_int <= InputPositionY;
-				positionX_int <= InputPositionX;
-			end if;
-			if Stop = '0' and Reset = '0' then
+			if Reset = '1' then
+				positionY_int <= X"80";
+				positionX_int <= X"80";
+			elsif Stop = '0' then
 				case moveVector is
 					when "00" =>
 						positionY_int <= positionY_int - speed;

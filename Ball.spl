@@ -1,0 +1,16 @@
+[Inputs]
+Reset
+SetVector
+Stop
+SpeedUp
+SpeedDown
+SizeUp
+SizeDown
+Clk
+=InputVector[1:0]=
+[Outputs]
+=Size[7:0]=
+=PositionY[7:0]=
+=PositionX[7:0]=
+=CurrentVector[1:0]=
+[BiDir]

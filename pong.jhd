@@ -5,3 +5,7 @@ MODULE pong
 		INSTANCE Player1
 	SUBMODULE Player
 		INSTANCE Player2
+	SUBMODULE CollisionManager
+		INSTANCE Collision
+	SUBMODULE Ball
+		INSTANCE Bally

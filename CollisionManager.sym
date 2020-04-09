@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="CollisionManager">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2020-4-9T17:18:11</timestamp>
+    <pin polarity="Input" x="0" y="-1056" name="Clk" />
+    <pin polarity="Input" x="0" y="-976" name="Reset" />
+    <pin polarity="Input" x="0" y="-896" name="PowerUpActive" />
+    <pin polarity="Input" x="0" y="-816" name="BallVector(1:0)" />
+    <pin polarity="Input" x="0" y="-736" name="BallSize(7:0)" />
+    <pin polarity="Input" x="0" y="-656" name="BallPositionY(7:0)" />
+    <pin polarity="Input" x="0" y="-576" name="BallPositionX(7:0)" />
+    <pin polarity="Input" x="0" y="-496" name="PlayerLeftPosition(7:0)" />
+    <pin polarity="Input" x="0" y="-416" name="PlayerLeftSize(7:0)" />
+    <pin polarity="Input" x="0" y="-336" name="PlayerRightPosition(7:0)" />
+    <pin polarity="Input" x="0" y="-256" name="PlayerRightSize(7:0)" />
+    <pin polarity="Input" x="0" y="-176" name="PowerUpType(2:0)" />
+    <pin polarity="Output" x="624" y="-1056" name="SetBallVector" />
+    <pin polarity="Output" x="624" y="-992" name="BallSpeedUp" />
+    <pin polarity="Output" x="624" y="-928" name="BallSpeedDown" />
+    <pin polarity="Output" x="624" y="-864" name="BallSizeUp" />
+    <pin polarity="Output" x="624" y="-800" name="BallSizeDown" />
+    <pin polarity="Output" x="624" y="-736" name="PlayerLeftScore" />
+    <pin polarity="Output" x="624" y="-672" name="PlayerLeftSpeedUp" />
+    <pin polarity="Output" x="624" y="-608" name="PlayerLeftSpeedDown" />
+    <pin polarity="Output" x="624" y="-544" name="PlayerLeftSizeUp" />
+    <pin polarity="Output" x="624" y="-480" name="PlayerLeftSizeDown" />
+    <pin polarity="Output" x="624" y="-416" name="PlayerRightScore" />
+    <pin polarity="Output" x="624" y="-352" name="PlayerRightSpeedUp" />
+    <pin polarity="Output" x="624" y="-288" name="PlayerRightSpeedDown" />
+    <pin polarity="Output" x="624" y="-224" name="PlayerRightSizeUp" />
+    <pin polarity="Output" x="624" y="-160" name="PlayerRightSizeDown" />
+    <pin polarity="Output" x="624" y="-96" name="PowerUpTurnOff" />
+    <pin polarity="Output" x="624" y="-32" name="NewBallVector(1:0)" />
+    <graph>
+        <rect width="496" x="64" y="-1088" height="1088" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="312" y="-1096" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-1056" type="pin Clk" />
+        <line x2="0" y1="-1056" y2="-1056" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-976" type="pin Reset" />
+        <line x2="0" y1="-976" y2="-976" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-896" type="pin PowerUpActive" />
+        <line x2="0" y1="-896" y2="-896" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-816" type="pin BallVector(1:0)" />
+        <rect width="64" x="0" y="-828" height="24" />
+        <line x2="0" y1="-816" y2="-816" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-736" type="pin BallSize(7:0)" />
+        <rect width="64" x="0" y="-748" height="24" />
+        <line x2="0" y1="-736" y2="-736" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-656" type="pin BallPositionY(7:0)" />
+        <rect width="64" x="0" y="-668" height="24" />
+        <line x2="0" y1="-656" y2="-656" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-576" type="pin BallPositionX(7:0)" />
+        <rect width="64" x="0" y="-588" height="24" />
+        <line x2="0" y1="-576" y2="-576" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-496" type="pin PlayerLeftPosition(7:0)" />
+        <rect width="64" x="0" y="-508" height="24" />
+        <line x2="0" y1="-496" y2="-496" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-416" type="pin PlayerLeftSize(7:0)" />
+        <rect width="64" x="0" y="-428" height="24" />
+        <line x2="0" y1="-416" y2="-416" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-336" type="pin PlayerRightPosition(7:0)" />
+        <rect width="64" x="0" y="-348" height="24" />
+        <line x2="0" y1="-336" y2="-336" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-256" type="pin PlayerRightSize(7:0)" />
+        <rect width="64" x="0" y="-268" height="24" />
+        <line x2="0" y1="-256" y2="-256" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-176" type="pin PowerUpType(2:0)" />
+        <rect width="64" x="0" y="-188" height="24" />
+        <line x2="0" y1="-176" y2="-176" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-1056" type="pin SetBallVector" />
+        <line x2="624" y1="-1056" y2="-1056" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-992" type="pin BallSpeedUp" />
+        <line x2="624" y1="-992" y2="-992" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-928" type="pin BallSpeedDown" />
+        <line x2="624" y1="-928" y2="-928" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-864" type="pin BallSizeUp" />
+        <line x2="624" y1="-864" y2="-864" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-800" type="pin BallSizeDown" />
+        <line x2="624" y1="-800" y2="-800" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-736" type="pin PlayerLeftScore" />
+        <line x2="624" y1="-736" y2="-736" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-672" type="pin PlayerLeftSpeedUp" />
+        <line x2="624" y1="-672" y2="-672" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-608" type="pin PlayerLeftSpeedDown" />
+        <line x2="624" y1="-608" y2="-608" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-544" type="pin PlayerLeftSizeUp" />
+        <line x2="624" y1="-544" y2="-544" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-480" type="pin PlayerLeftSizeDown" />
+        <line x2="624" y1="-480" y2="-480" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-416" type="pin PlayerRightScore" />
+        <line x2="624" y1="-416" y2="-416" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-352" type="pin PlayerRightSpeedUp" />
+        <line x2="624" y1="-352" y2="-352" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-288" type="pin PlayerRightSpeedDown" />
+        <line x2="624" y1="-288" y2="-288" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-224" type="pin PlayerRightSizeUp" />
+        <line x2="624" y1="-224" y2="-224" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-160" type="pin PlayerRightSizeDown" />
+        <line x2="624" y1="-160" y2="-160" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-96" type="pin PowerUpTurnOff" />
+        <line x2="624" y1="-96" y2="-96" x1="560" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="552" y="-32" type="pin NewBallVector(1:0)" />
+        <rect width="64" x="560" y="-44" height="24" />
+        <line x2="624" y1="-32" y2="-32" x1="560" />
+    </graph>
+</symbol>

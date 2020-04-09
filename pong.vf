@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : pong.vf
-// /___/   /\     Timestamp : 03/30/2020 00:49:22
+// /___/   /\     Timestamp : 04/09/2020 19:28:49
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -33,7 +33,73 @@ module pong(Clk,
    wire XLXN_13;
    wire XLXN_14;
    wire XLXN_15;
+   wire XLXN_21;
+   wire XLXN_22;
+   wire XLXN_23;
+   wire XLXN_24;
+   wire XLXN_25;
+   wire XLXN_26;
+   wire XLXN_27;
+   wire XLXN_28;
+   wire XLXN_29;
+   wire XLXN_30;
+   wire [7:0] XLXN_31;
+   wire [7:0] XLXN_32;
+   wire [7:0] XLXN_33;
+   wire [7:0] XLXN_34;
+   wire [7:0] XLXN_35;
+   wire [7:0] XLXN_37;
+   wire [7:0] XLXN_38;
+   wire [1:0] XLXN_39;
+   wire XLXN_40;
+   wire XLXN_41;
+   wire XLXN_42;
+   wire XLXN_43;
+   wire XLXN_44;
+   wire [1:0] XLXN_45;
    
+   Ball  Bally (.Clk(Clk), 
+               .InputVector(XLXN_45[1:0]), 
+               .Reset(), 
+               .SetVector(XLXN_40), 
+               .SizeDown(XLXN_44), 
+               .SizeUp(XLXN_43), 
+               .SpeedDown(XLXN_42), 
+               .SpeedUp(XLXN_41), 
+               .Stop(), 
+               .CurrentVector(XLXN_39[1:0]), 
+               .PositionX(XLXN_38[7:0]), 
+               .PositionY(XLXN_37[7:0]), 
+               .Size(XLXN_35[7:0]));
+   CollisionManager  Collision (.BallPositionX(XLXN_38[7:0]), 
+                               .BallPositionY(XLXN_37[7:0]), 
+                               .BallSize(XLXN_35[7:0]), 
+                               .BallVector(XLXN_39[1:0]), 
+                               .Clk(Clk), 
+                               .PlayerLeftPosition(XLXN_34[7:0]), 
+                               .PlayerLeftSize(XLXN_33[7:0]), 
+                               .PlayerRightPosition(XLXN_32[7:0]), 
+                               .PlayerRightSize(XLXN_31[7:0]), 
+                               .PowerUpActive(), 
+                               .PowerUpType(), 
+                               .Reset(), 
+                               .BallSizeDown(XLXN_44), 
+                               .BallSizeUp(XLXN_43), 
+                               .BallSpeedDown(XLXN_42), 
+                               .BallSpeedUp(XLXN_41), 
+                               .NewBallVector(XLXN_45[1:0]), 
+                               .PlayerLeftScore(XLXN_21), 
+                               .PlayerLeftSizeDown(XLXN_25), 
+                               .PlayerLeftSizeUp(XLXN_24), 
+                               .PlayerLeftSpeedDown(XLXN_23), 
+                               .PlayerLeftSpeedUp(XLXN_22), 
+                               .PlayerRightScore(XLXN_26), 
+                               .PlayerRightSizeDown(XLXN_30), 
+                               .PlayerRightSizeUp(XLXN_29), 
+                               .PlayerRightSpeedDown(XLXN_28), 
+                               .PlayerRightSpeedUp(XLXN_27), 
+                               .PowerUpTurnOff(), 
+                               .SetBallVector(XLXN_40));
    InputManager  Input (.Clk(Clk), 
                        .PS2_Clk(PS2_Clk), 
                        .PS2_Data(PS2_Data), 
@@ -46,25 +112,25 @@ module pong(Clk,
    Player  Player1 (.Clk(Clk), 
                    .Down(XLXN_13), 
                    .Reset(XLXN_10), 
-                   .ScoreInc(), 
-                   .SizeDown(), 
-                   .SizeUp(), 
-                   .SpeedDown(), 
-                   .SpeedUp(), 
+                   .ScoreInc(XLXN_21), 
+                   .SizeDown(XLXN_25), 
+                   .SizeUp(XLXN_24), 
+                   .SpeedDown(XLXN_23), 
+                   .SpeedUp(XLXN_22), 
                    .Up(XLXN_12), 
-                   .Position(), 
+                   .Position(XLXN_34[7:0]), 
                    .Score(), 
-                   .Size());
+                   .Size(XLXN_33[7:0]));
    Player  Player2 (.Clk(Clk), 
                    .Down(XLXN_15), 
                    .Reset(XLXN_10), 
-                   .ScoreInc(), 
-                   .SizeDown(), 
-                   .SizeUp(), 
-                   .SpeedDown(), 
-                   .SpeedUp(), 
+                   .ScoreInc(XLXN_26), 
+                   .SizeDown(XLXN_30), 
+                   .SizeUp(XLXN_29), 
+                   .SpeedDown(XLXN_28), 
+                   .SpeedUp(XLXN_27), 
                    .Up(XLXN_14), 
-                   .Position(), 
+                   .Position(XLXN_32[7:0]), 
                    .Score(), 
-                   .Size());
+                   .Size(XLXN_31[7:0]));
 endmodule
