@@ -44,7 +44,7 @@ architecture PlayerArch of Player is
 	signal score_int : UNSIGNED(3 downto 0) := X"0";
 	signal speed_int : UNSIGNED(7 downto 0) := X"01";
 	signal size_int : UNSIGNED(7 downto 0) := X"00"; -- TODO: Set default size for display
-	signal position_int : UNSIGNED(7 downto 0) := X"7F";
+	signal position_int : UNSIGNED(7 downto 0) := X"80";
 begin
 	Score <= score_int;
 	Size <= size_int;
