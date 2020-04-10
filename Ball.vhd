@@ -24,7 +24,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity Ball is
 	port(Reset : in STD_LOGIC;
 		  SetVector : in STD_LOGIC;
-		  InputVector : in STD_LOGIC_VECTOR(1 downto 0); -- First bit up(1)-down(0), second right(1)-left(0), ex: "10" = Up left
+		  InputVector : in STD_LOGIC_VECTOR(1 downto 0); -- MSB up(1)-down(0), LSB right(1)-left(0), ex: "10" = Up left
 		  Stop : in STD_LOGIC;
 		  SpeedUp : in STD_LOGIC;
 		  SpeedDown : in STD_LOGIC;
