@@ -60,7 +60,6 @@ architecture CollisionManagerArch of CollisionManager is
 	constant max_y : UNSIGNED(7 downto 0) := X"FF";
 	constant max_x : UNSIGNED(7 downto 0) := X"FF";
 	constant player_minimal_size : UNSIGNED(7 downto 0) := X"03"; -- Means total 7 length (3 on each side)
-	constant powerup_thickness : UNSIGNED(7 downto 0) := X"01";
 	
 	signal ball_vector : STD_LOGIC_VECTOR(1 downto 0);
 	
@@ -204,17 +203,29 @@ begin
 				end if;
 				case ball_vector is
 					when "00" => -- Down left
-						PowerUpTurnOff <= '1';
-						SetPowerUp(ball_vector(0));
+						if PowerUpPositionX >= ball_next_x and PowerUpPositionX <= BallPositionX and
+							PowerUpPositionY >= ball_next_y and PowerUpPositionY <= BallPositionY then
+							PowerUpTurnOff <= '1';
+							SetPowerUp(ball_vector(0));
+						end if;
 					when "10" => -- Up left
-						PowerUpTurnOff <= '1';
-						SetPowerUp(ball_vector(0));
+						if PowerUpPositionX >= ball_next_x and PowerUpPositionX <= BallPositionX and
+							PowerUpPositionY >= BallPositionY and PowerUpPositionY <= ball_next_y then
+							PowerUpTurnOff <= '1';
+							SetPowerUp(ball_vector(0));
+						end if;
 					when "01" => -- Down right
-						PowerUpTurnOff <= '1';
-						SetPowerUp(ball_vector(0));
+						if PowerUpPositionX >= BallPositionX and PowerUpPositionX <= ball_next_x and
+							PowerUpPositionY >= ball_next_y and PowerUpPositionY <= BallPositionY then
+							PowerUpTurnOff <= '1';
+							SetPowerUp(ball_vector(0));
+						end if;
 					when "11" => -- Up right
-						PowerUpTurnOff <= '1';
-						SetPowerUp(ball_vector(0));
+						if PowerUpPositionX >= BallPositionX and PowerUpPositionX <= ball_next_x and
+							PowerUpPositionY >= BallPositionY and PowerUpPositionY <= ball_next_y then
+							PowerUpTurnOff <= '1';
+							SetPowerUp(ball_vector(0));
+						end if;
 					when others =>
 				end case;
 			end if;
