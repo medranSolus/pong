@@ -9,3 +9,5 @@ MODULE pong
 		INSTANCE Collision
 	SUBMODULE Ball
 		INSTANCE Bally
+	SUBMODULE PowerUp
+		INSTANCE Power

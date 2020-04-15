@@ -14,10 +14,6 @@
         <signal name="XLXN_14" />
         <signal name="XLXN_15" />
         <signal name="Clk" />
-        <signal name="XLXN_17" />
-        <signal name="XLXN_18" />
-        <signal name="XLXN_19" />
-        <signal name="XLXN_20" />
         <signal name="XLXN_21" />
         <signal name="XLXN_22" />
         <signal name="XLXN_23" />
@@ -43,6 +39,12 @@
         <signal name="XLXN_62(7:0)" />
         <signal name="XLXN_63(7:0)" />
         <signal name="XLXN_64(7:0)" />
+        <signal name="XLXN_65" />
+        <signal name="XLXN_66(2:0)" />
+        <signal name="XLXN_67(7:0)" />
+        <signal name="XLXN_68(7:0)" />
+        <signal name="XLXN_69" />
+        <signal name="XLXN_70" />
         <port polarity="Input" name="PS2_Data" />
         <port polarity="Input" name="PS2_Clk" />
         <port polarity="Input" name="Clk" />
@@ -151,6 +153,20 @@
             <rect width="64" x="432" y="-44" height="24" />
             <line x2="496" y1="-32" y2="-32" x1="432" />
         </blockdef>
+        <blockdef name="PowerUp">
+            <timestamp>2020-4-15T17:19:7</timestamp>
+            <rect width="256" x="64" y="-256" height="256" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="0" y1="-128" y2="-128" x1="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-224" y2="-224" x1="320" />
+            <rect width="64" x="320" y="-172" height="24" />
+            <line x2="384" y1="-160" y2="-160" x1="320" />
+            <rect width="64" x="320" y="-108" height="24" />
+            <line x2="384" y1="-96" y2="-96" x1="320" />
+            <rect width="64" x="320" y="-44" height="24" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
+        </blockdef>
         <block symbolname="Player" name="Player1">
             <blockpin signalname="XLXN_10" name="Reset" />
             <blockpin signalname="XLXN_12" name="Up" />
@@ -184,7 +200,7 @@
             <blockpin signalname="PS2_Data" name="PS2_Data" />
             <blockpin signalname="Clk" name="Clk" />
             <blockpin signalname="XLXN_10" name="Reset" />
-            <blockpin name="Pause" />
+            <blockpin signalname="XLXN_70" name="Pause" />
             <blockpin signalname="XLXN_12" name="Up_P1" />
             <blockpin signalname="XLXN_13" name="Down_P1" />
             <blockpin signalname="XLXN_14" name="Up_P2" />
@@ -193,7 +209,7 @@
         <block symbolname="CollisionManager" name="Collision">
             <blockpin signalname="Clk" name="Clk" />
             <blockpin name="Reset" />
-            <blockpin name="PowerUpActive" />
+            <blockpin signalname="XLXN_65" name="PowerUpActive" />
             <blockpin signalname="XLXN_55(1:0)" name="BallVector(1:0)" />
             <blockpin signalname="XLXN_58(7:0)" name="BallSize(7:0)" />
             <blockpin signalname="XLXN_60(7:0)" name="BallSpeed(7:0)" />
@@ -203,9 +219,9 @@
             <blockpin signalname="XLXN_62(7:0)" name="PlayerLeftSize(7:0)" />
             <blockpin signalname="XLXN_63(7:0)" name="PlayerRightPosition(7:0)" />
             <blockpin signalname="XLXN_64(7:0)" name="PlayerRightSize(7:0)" />
-            <blockpin name="PowerUpType(2:0)" />
-            <blockpin name="PowerUpPositionY(7:0)" />
-            <blockpin name="PowerUpPositionX(7:0)" />
+            <blockpin signalname="XLXN_66(2:0)" name="PowerUpType(2:0)" />
+            <blockpin signalname="XLXN_67(7:0)" name="PowerUpPositionY(7:0)" />
+            <blockpin signalname="XLXN_68(7:0)" name="PowerUpPositionX(7:0)" />
             <blockpin signalname="XLXN_40" name="SetBallVector" />
             <blockpin signalname="XLXN_41" name="BallSpeedUp" />
             <blockpin signalname="XLXN_42" name="BallSpeedDown" />
@@ -221,13 +237,13 @@
             <blockpin signalname="XLXN_28" name="PlayerRightSpeedDown" />
             <blockpin signalname="XLXN_29" name="PlayerRightSizeUp" />
             <blockpin signalname="XLXN_30" name="PlayerRightSizeDown" />
-            <blockpin name="PowerUpTurnOff" />
+            <blockpin signalname="XLXN_69" name="PowerUpTurnOff" />
             <blockpin signalname="XLXN_45(1:0)" name="NewBallVector(1:0)" />
         </block>
         <block symbolname="Ball" name="Bally">
             <blockpin name="Reset" />
             <blockpin signalname="XLXN_40" name="SetVector" />
-            <blockpin name="Stop" />
+            <blockpin signalname="XLXN_70" name="Stop" />
             <blockpin signalname="XLXN_41" name="SpeedUp" />
             <blockpin signalname="XLXN_42" name="SpeedDown" />
             <blockpin signalname="XLXN_43" name="SizeUp" />
@@ -239,6 +255,15 @@
             <blockpin signalname="XLXN_57(7:0)" name="PositionY(7:0)" />
             <blockpin signalname="XLXN_56(7:0)" name="PositionX(7:0)" />
             <blockpin signalname="XLXN_55(1:0)" name="CurrentVector(1:0)" />
+        </block>
+        <block symbolname="PowerUp" name="Power">
+            <blockpin signalname="Clk" name="Clk" />
+            <blockpin name="Activate" />
+            <blockpin signalname="XLXN_69" name="TurnOff" />
+            <blockpin signalname="XLXN_65" name="IsActive" />
+            <blockpin signalname="XLXN_66(2:0)" name="PowerType(2:0)" />
+            <blockpin signalname="XLXN_67(7:0)" name="PositionY(7:0)" />
+            <blockpin signalname="XLXN_68(7:0)" name="PositionX(7:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -298,9 +323,11 @@
             <wire x2="144" y1="624" y2="1296" x1="144" />
             <wire x2="752" y1="1296" y2="1296" x1="144" />
             <wire x2="800" y1="1296" y2="1296" x1="752" />
-            <wire x2="752" y1="1296" y2="1872" x1="752" />
+            <wire x2="752" y1="1296" y2="1456" x1="752" />
+            <wire x2="752" y1="1456" y2="1872" x1="752" />
             <wire x2="1616" y1="1872" y2="1872" x1="752" />
             <wire x2="1840" y1="1872" y2="1872" x1="1616" />
+            <wire x2="800" y1="1456" y2="1456" x1="752" />
             <wire x2="1712" y1="112" y2="112" x1="1616" />
             <wire x2="1616" y1="112" y2="1872" x1="1616" />
         </branch>
@@ -473,6 +500,42 @@
             <wire x2="1456" y1="1296" y2="1296" x1="1184" />
             <wire x2="1456" y1="816" y2="1296" x1="1456" />
             <wire x2="1712" y1="816" y2="816" x1="1456" />
+        </branch>
+        <instance x="800" y="1680" name="Power" orien="R0">
+        </instance>
+        <branch name="XLXN_65">
+            <wire x2="1408" y1="1456" y2="1456" x1="1184" />
+            <wire x2="1408" y1="240" y2="1456" x1="1408" />
+            <wire x2="1712" y1="240" y2="240" x1="1408" />
+        </branch>
+        <branch name="XLXN_66(2:0)">
+            <wire x2="1424" y1="1520" y2="1520" x1="1184" />
+            <wire x2="1424" y1="880" y2="1520" x1="1424" />
+            <wire x2="1712" y1="880" y2="880" x1="1424" />
+        </branch>
+        <branch name="XLXN_67(7:0)">
+            <wire x2="1392" y1="1584" y2="1584" x1="1184" />
+            <wire x2="1392" y1="944" y2="1584" x1="1392" />
+            <wire x2="1712" y1="944" y2="944" x1="1392" />
+        </branch>
+        <branch name="XLXN_68(7:0)">
+            <wire x2="1472" y1="1648" y2="1648" x1="1184" />
+            <wire x2="1472" y1="1008" y2="1648" x1="1472" />
+            <wire x2="1712" y1="1008" y2="1008" x1="1472" />
+        </branch>
+        <branch name="XLXN_69">
+            <wire x2="800" y1="1648" y2="1648" x1="704" />
+            <wire x2="704" y1="1648" y2="2080" x1="704" />
+            <wire x2="2448" y1="2080" y2="2080" x1="704" />
+            <wire x2="2448" y1="1072" y2="1072" x1="2336" />
+            <wire x2="2448" y1="1072" y2="2080" x1="2448" />
+        </branch>
+        <branch name="XLXN_70">
+            <wire x2="640" y1="272" y2="272" x1="576" />
+            <wire x2="640" y1="272" y2="720" x1="640" />
+            <wire x2="1248" y1="720" y2="720" x1="640" />
+            <wire x2="1248" y1="720" y2="1552" x1="1248" />
+            <wire x2="1840" y1="1552" y2="1552" x1="1248" />
         </branch>
     </sheet>
 </drawing>
