@@ -47,6 +47,7 @@ architecture InputManagerArch of InputManager is
 	signal DO_Rdy : STD_LOGIC := '0';
 	signal E0 : STD_LOGIC := '0';
 	signal F0 : STD_LOGIC := '0';
+	signal pause_int : STD_LOGIC := '0';
 begin
 	PS2_Control : PS2_Kbd port map (PS2_Clk => PS2_Clk,
 										 PS2_Data => PS2_Data,
@@ -56,11 +57,12 @@ begin
 										 DO_Rdy => DO_Rdy,
 										 E0 => E0,
 										 F0 => F0);
+	Pause <= pause_int;
+	
 	process (Clk, DO_Rdy)
 	begin
 		if rising_edge(Clk) then
 			Reset <= '0';
-			Pause <= '0';
 			Up_P1 <= '0';
 			Down_P1 <= '0';
 			Up_P2 <= '0';
@@ -68,45 +70,20 @@ begin
 			if DO_Rdy = '1' then
 				case DO is
 					when X"2D" => -- Reset "R"
-						if F0 = '1' then
-							Reset <= '0';
-						else
-							Reset <= '1';
-						end if;
+						Reset <= not F0;
+						pause_int <= '0';
 					when X"4D" => -- Pause "P"
 						if F0 = '1' then
-							Pause <= '0';
-						else
-							Pause <= '1';
+							pause_int <= not pause_int;
 						end if;
 					when X"1D" => -- Up_P1 "W"
-						if F0 = '1' then
-							Up_P1 <= '0';
-						else
-							Up_P1 <= '1';
-						end if;
+						Up_P1 <= (not F0) and pause_int;
 					when X"1B" => -- Down_P1 "S"
-						if F0 = '1' then
-							Down_P1 <= '0';
-						else
-							Down_P1 <= '1';
-						end if;
+						Down_P1 <= (not F0) and pause_int;
 					when X"75" => -- UP_P2 "Up arrow"
-						if E0 = '1' then
-							if F0 = '1' then
-								UP_P2 <= '0';
-							else
-								UP_P2 <= '1';
-							end if;
-						end if;
+						UP_P2 <= (not F0) and E0 and pause_int;
 					when X"72" => -- Down_P2 "Down arrow"
-						if E0 = '1' then
-							if F0 = '1' then
-								Down_P2 <= '0';
-							else
-								Down_P2 <= '1';
-							end if;
-						end if;
+						Down_P2 <= (not F0) and E0 and pause_int;
 					when others =>
 				end case;
 			end if;
