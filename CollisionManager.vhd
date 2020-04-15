@@ -21,9 +21,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity CollisionManager is
 	port(Clk : in STD_LOGIC;
 		  Reset : in STD_LOGIC;
@@ -63,7 +60,6 @@ architecture CollisionManagerArch of CollisionManager is
 	constant max_y : UNSIGNED(7 downto 0) := X"FF";
 	constant max_x : UNSIGNED(7 downto 0) := X"FF";
 	constant player_minimal_size : UNSIGNED(7 downto 0) := X"03"; -- Means total 7 length (3 on each side)
-	constant player_thickness : UNSIGNED(7 downto 0) := X"02";
 	constant powerup_thickness : UNSIGNED(7 downto 0) := X"01";
 	
 	signal ball_vector : STD_LOGIC_VECTOR(1 downto 0);
@@ -110,6 +106,10 @@ begin
 	NewBallVector <= ball_vector;
 	
 	process(Clk, Reset, BallVector, BallPositionY, BallPositionX, PlayerLeftPosition, PlayerRightPosition)
+		variable player_margin_up : UNSIGNED(7 downto 0) := X"00";
+		variable player_margin_down : UNSIGNED(7 downto 0) := X"00";
+		variable ball_margin_up : UNSIGNED(7 downto 0) := X"00";
+		variable ball_margin_down : UNSIGNED(7 downto 0) := X"00";
 	begin
 		if rising_edge(Clk) then
 			PlayerLeftScore <= '0';
@@ -120,17 +120,39 @@ begin
 			else
 				SetBallVector <= '0';
 				ball_vector <= BallVector;
+				ball_margin_up := BallPositionY + BallSize;
+				ball_margin_down := BallPositionY - BallSize;
 				if BallVector(0) = '1' then
-					-- Bounce from right player (if on vector)
 					-- Check if hits right wall (point)
 					if BallPositionX >= max_x - BallSpeed - BallSize then
-						PlayerLeftScore <= '1';
+						player_margin_up := PlayerRightPosition + PlayerRightSize + player_minimal_size;
+						player_margin_down := PlayerRightPosition - PlayerRightSize - player_minimal_size;
+						-- Bounce from right player (if on vector)
+						if (ball_margin_down <= player_margin_up and ball_margin_down >= player_margin_down) or -- Player bigger than ball
+							(ball_margin_up <= player_margin_up and ball_margin_up >= player_margin_down) or 	 --/
+							(player_margin_down <= ball_margin_up and player_margin_down >= ball_margin_down) or -- Ball bigger than player				
+							(player_margin_up <= ball_margin_up and player_margin_up >= ball_margin_down) then   --/
+							SetBallVector <= '1';
+							ball_vector(0) <= '0';
+						else
+							PlayerLeftScore <= '1';
+						end if;
 					end if;
 				else
-					-- Bounce from left player (if on vector)
 					-- Check if hits left wall (point)
 					if BallPositionX <= BallSpeed + BallSize then
-						PlayerRightScore <= '1';
+						player_margin_up := PlayerLeftPosition + PlayerLeftSize + player_minimal_size;
+						player_margin_down := PlayerLeftPosition - PlayerLeftSize - player_minimal_size;
+						-- Bounce from left player (if on vector)
+						if (ball_margin_down <= player_margin_up and ball_margin_down >= player_margin_down) or -- Player bigger than ball
+							(ball_margin_up <= player_margin_up and ball_margin_up >= player_margin_down) or 	 --/
+							(player_margin_down <= ball_margin_up and player_margin_down >= ball_margin_down) or -- Ball bigger than player				
+							(player_margin_up <= ball_margin_up and player_margin_up >= ball_margin_down) then   --/
+							SetBallVector <= '1';
+							ball_vector(0) <= '1';
+						else
+							PlayerRightScore <= '1';
+						end if;
 					end if;
 				end if;
 				if BallVector(1) = '1' then
