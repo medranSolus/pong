@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="PowerUp">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2020-4-15T17:19:7</timestamp>
+    <timestamp>2020-4-16T17:51:25</timestamp>
     <pin polarity="Input" x="0" y="-224" name="Clk" />
     <pin polarity="Input" x="0" y="-128" name="Activate" />
     <pin polarity="Input" x="0" y="-32" name="TurnOff" />

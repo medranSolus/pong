@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="InputManager">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2020-3-29T19:33:49</timestamp>
+    <timestamp>2020-4-16T17:51:9</timestamp>
     <pin polarity="Input" x="0" y="-352" name="PS2_Clk" />
     <pin polarity="Input" x="0" y="-192" name="PS2_Data" />
     <pin polarity="Input" x="0" y="-32" name="Clk" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="Ball">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2020-4-9T18:44:48</timestamp>
+    <timestamp>2020-4-16T17:50:52</timestamp>
     <pin polarity="Input" x="0" y="-544" name="Reset" />
     <pin polarity="Input" x="0" y="-480" name="SetVector" />
     <pin polarity="Input" x="0" y="-416" name="Stop" />
