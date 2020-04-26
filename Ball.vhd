@@ -64,7 +64,7 @@ begin
 				if SpeedUp = '1' and speed_int < max_speed then
 					speed_int <= speed_int + 1;
 				end if;
-				if SpeedDown = '1' and speed_int > X"00" then
+				if SpeedDown = '1' and speed_int > X"01" then
 					speed_int <= speed_int - 1;
 				end if;
 				if SizeUp = '1' and size_int < max_size then

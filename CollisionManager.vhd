@@ -63,44 +63,6 @@ architecture CollisionManagerArch of CollisionManager is
 	
 	signal ball_vector : STD_LOGIC_VECTOR(1 downto 0);
 	
-	procedure SetPowerUp(signal ball_direction : in STD_LOGIC) is
-	begin
-		case PowerUpType is
-			when "000" =>
-				BallSpeedUp <= '1';
-			when "001" =>
-				BallSpeedDown <= '1';
-			when "010" =>
-				BallSizeUp <= '1';
-			when "011" =>
-				BallSizeDown <= '1';
-			when "100" =>
-				if ball_direction = '1' then
-					PlayerLeftSpeedUp <= '1';
-				else
-					PlayerRightSpeedUp <= '1';
-				end if;
-			when "101" =>
-				if ball_direction = '1' then
-					PlayerLeftSpeedDown <= '1';
-				else
-					PlayerRightSpeedDown <= '1';
-				end if;
-			when "110" =>
-				if ball_direction = '1' then
-					PlayerLeftSizeUp <= '1';
-				else
-					PlayerRightSizeUp <= '1';
-				end if;
-			when "111" =>
-				if ball_direction = '1' then
-					PlayerLeftSizeDown <= '1';
-				else
-					PlayerRightSizeDown <= '1';
-				end if;
-			when others =>
-		end case;
-	end procedure;
 begin
 	NewBallVector <= ball_vector;
 	
@@ -206,25 +168,161 @@ begin
 						if PowerUpPositionX >= ball_next_x and PowerUpPositionX <= BallPositionX and
 							PowerUpPositionY >= ball_next_y and PowerUpPositionY <= BallPositionY then
 							PowerUpTurnOff <= '1';
-							SetPowerUp(ball_vector(0));
+							case PowerUpType is
+							when "000" =>
+								BallSpeedUp <= '1';
+							when "001" =>
+								BallSpeedDown <= '1';
+							when "010" =>
+								BallSizeUp <= '1';
+							when "011" =>
+								BallSizeDown <= '1';
+							when "100" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedUp <= '1';
+								else
+									PlayerRightSpeedUp <= '1';
+								end if;
+							when "101" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedDown <= '1';
+								else
+									PlayerRightSpeedDown <= '1';
+								end if;
+							when "110" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeUp <= '1';
+								else
+									PlayerRightSizeUp <= '1';
+								end if;
+							when "111" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeDown <= '1';
+								else
+									PlayerRightSizeDown <= '1';
+								end if;
+							when others =>
+						end case;
 						end if;
 					when "10" => -- Up left
 						if PowerUpPositionX >= ball_next_x and PowerUpPositionX <= BallPositionX and
 							PowerUpPositionY >= BallPositionY and PowerUpPositionY <= ball_next_y then
 							PowerUpTurnOff <= '1';
-							SetPowerUp(ball_vector(0));
+							case PowerUpType is
+							when "000" =>
+								BallSpeedUp <= '1';
+							when "001" =>
+								BallSpeedDown <= '1';
+							when "010" =>
+								BallSizeUp <= '1';
+							when "011" =>
+								BallSizeDown <= '1';
+							when "100" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedUp <= '1';
+								else
+									PlayerRightSpeedUp <= '1';
+								end if;
+							when "101" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedDown <= '1';
+								else
+									PlayerRightSpeedDown <= '1';
+								end if;
+							when "110" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeUp <= '1';
+								else
+									PlayerRightSizeUp <= '1';
+								end if;
+							when "111" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeDown <= '1';
+								else
+									PlayerRightSizeDown <= '1';
+								end if;
+							when others =>
+						end case;
 						end if;
 					when "01" => -- Down right
 						if PowerUpPositionX >= BallPositionX and PowerUpPositionX <= ball_next_x and
 							PowerUpPositionY >= ball_next_y and PowerUpPositionY <= BallPositionY then
 							PowerUpTurnOff <= '1';
-							SetPowerUp(ball_vector(0));
+							case PowerUpType is
+							when "000" =>
+								BallSpeedUp <= '1';
+							when "001" =>
+								BallSpeedDown <= '1';
+							when "010" =>
+								BallSizeUp <= '1';
+							when "011" =>
+								BallSizeDown <= '1';
+							when "100" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedUp <= '1';
+								else
+									PlayerRightSpeedUp <= '1';
+								end if;
+							when "101" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedDown <= '1';
+								else
+									PlayerRightSpeedDown <= '1';
+								end if;
+							when "110" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeUp <= '1';
+								else
+									PlayerRightSizeUp <= '1';
+								end if;
+							when "111" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeDown <= '1';
+								else
+									PlayerRightSizeDown <= '1';
+								end if;
+							when others =>
+						end case;
 						end if;
 					when "11" => -- Up right
 						if PowerUpPositionX >= BallPositionX and PowerUpPositionX <= ball_next_x and
 							PowerUpPositionY >= BallPositionY and PowerUpPositionY <= ball_next_y then
 							PowerUpTurnOff <= '1';
-							SetPowerUp(ball_vector(0));
+							case PowerUpType is
+							when "000" =>
+								BallSpeedUp <= '1';
+							when "001" =>
+								BallSpeedDown <= '1';
+							when "010" =>
+								BallSizeUp <= '1';
+							when "011" =>
+								BallSizeDown <= '1';
+							when "100" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedUp <= '1';
+								else
+									PlayerRightSpeedUp <= '1';
+								end if;
+							when "101" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSpeedDown <= '1';
+								else
+									PlayerRightSpeedDown <= '1';
+								end if;
+							when "110" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeUp <= '1';
+								else
+									PlayerRightSizeUp <= '1';
+								end if;
+							when "111" =>
+								if ball_vector(0) = '1' then
+									PlayerLeftSizeDown <= '1';
+								else
+									PlayerRightSizeDown <= '1';
+								end if;
+							when others =>
+						end case;		
 						end if;
 					when others =>
 				end case;

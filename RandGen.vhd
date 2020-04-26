@@ -27,8 +27,8 @@ entity RandGen is
 end RandGen;
 
 architecture RandGenArch of RandGen is
-   signal lfsr : STD_LOGIC_VECTOR(3 downto 0); -- Linear Feedback Shift Register
-   signal feedback : STD_LOGIC;
+   signal lfsr : STD_LOGIC_VECTOR(3 downto 0) := B"0000"; -- Linear Feedback Shift Register
+   signal feedback : STD_LOGIC := '0';
 begin
    feedback <= not(lfsr(3) xor lfsr(2));  
    Random <= lfsr(3);
