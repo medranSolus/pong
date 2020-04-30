@@ -24,6 +24,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity RenderManager is
 	port (Clk : in STD_LOGIC;
 			Present : in STD_LOGIC;
+			Pause : in STD_LOGIC;
 		   PowerUpActive : in STD_LOGIC;
 		   PowerUpType : in STD_LOGIC_VECTOR(2 downto 0);
 		   PowerUpPositionY : in UNSIGNED(7 downto 0);
@@ -37,6 +38,7 @@ entity RenderManager is
 			Player2Score : in UNSIGNED(3 downto 0);
 		   Player2Position : in UNSIGNED(7 downto 0);
 		   Player2Size : in UNSIGNED(7 downto 0);
+			EndGame : in STD_LOGIC;
 			Red : out STD_LOGIC;
 			Green : out STD_LOGIC;
 			Blue : out STD_LOGIC;

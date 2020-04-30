@@ -47,7 +47,7 @@ architecture InputManagerArch of InputManager is
 	signal DO_Rdy : STD_LOGIC := '0';
 	signal E0 : STD_LOGIC := '0';
 	signal F0 : STD_LOGIC := '0';
-	signal pause_int : STD_LOGIC := '0';
+	signal pause_int : STD_LOGIC := '1';
 begin
 	PS2_Control : PS2_Kbd port map (PS2_Clk => PS2_Clk,
 										 PS2_Data => PS2_Data,
@@ -71,7 +71,7 @@ begin
 				case DO is
 					when X"2D" => -- Reset "R"
 						Reset <= not F0;
-						pause_int <= '0';
+						pause_int <= '1';
 					when X"4D" => -- Pause "P"
 						if F0 = '1' then
 							pause_int <= not pause_int;
