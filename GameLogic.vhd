@@ -25,7 +25,6 @@ entity GameLogic is
 	port (Clk : in STD_LOGIC;
 			Pause : in STD_LOGIC;
 			Reset : in STD_LOGIC;
-			PlayerScore : in STD_LOGIC;
 			Player1Score : in UNSIGNED(3 downto 0);
 			Player2Score : in UNSIGNED(3 downto 0);
 			Present : out STD_LOGIC;
@@ -46,9 +45,9 @@ begin
 	ResetMatch <= Reset;
 	EndGame <= endGame_int;
 	
-	process (Clk, PlayerScore, Reset, Player1Score, Player2Score)
+	process (Clk, Reset, Player1Score, Player2Score)
 	begin
-		if rising_edge(Clk) and PlayerScore = '1' then
+		if rising_edge(Clk) then
 			if Player1Score = maxScore or Player2Score = maxScore then
 				endGame_int <= '1' and not Reset;
 			else
