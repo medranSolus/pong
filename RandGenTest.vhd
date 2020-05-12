@@ -69,6 +69,6 @@ BEGIN
 	-- Run configuration: run 100 ns
 
 	Clk <= not Clk after Clk_period / 2;
-	Reset <= '1' after 500 ns, '0' after 520 ns;
+	Reset <= '1' after 50 ns, '0' after 70 ns;
 
 END;
