@@ -57,11 +57,28 @@ architecture RenderManagerArch of RenderManager is
 	constant VGA_Yellow : PIXEL := "110";
 	constant VGA_White : PIXEL := "111";
 	
-	signal current_pixel : PIXEL := VGA_Black;
+	type VGA_ROW is array (639 downto 0) of PIXEL;
+	type VGA_BUFFER is array (479 downto 0) of VGA_ROW;
+	type VGA_DOUBLE_BUFFER is array (1 downto 0) of VGA_BUFFER;
+	signal vga_buffers : VGA_DOUBLE_BUFFER := (others => (others => (others => VGA_Black)));
+	signal vga_front_buffer : INTEGER range 0 to 1 := 1;
+	
+	signal x_out : INTEGER range 0 to 639 := 0;
+	signal y_out : INTEGER range 0 to 479 := 0;
 begin
-	Red <= current_pixel(2);
-	Green <= current_pixel(1);
-	Blue <= current_pixel(0);
+	
+	process(Clk) -- Render thread, maybe change frequency..
+	begin
+		if rising_edge(Clk) then
+			Red <= vga_buffers(vga_front_buffer)(y_out)(x_out)(2);
+			Green <= vga_buffers(vga_front_buffer)(y_out)(x_out)(1);
+			Blue <= vga_buffers(vga_front_buffer)(y_out)(x_out)(0);
+			x_out <= x_out + 1;
+			if x_out = 0 then
+				y_out <= y_out + 1;
+			end if;
+		end if;
+	end process;
 
 end RenderManagerArch;
 
