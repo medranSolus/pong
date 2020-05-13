@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="GameLogic">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2020-5-5T9:21:38</timestamp>
+    <timestamp>2020-5-13T12:6:22</timestamp>
     <pin polarity="Input" x="0" y="-288" name="Clk" />
     <pin polarity="Input" x="0" y="-224" name="Pause" />
     <pin polarity="Input" x="0" y="-160" name="Reset" />

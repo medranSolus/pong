@@ -31,21 +31,21 @@ entity Ball is
 		  SizeUp : in STD_LOGIC;
 		  SizeDown : in STD_LOGIC;
 		  Clk : in STD_LOGIC;
-		  Speed : out UNSIGNED(7 downto 0);
-		  Size : out UNSIGNED(7 downto 0);
-		  PositionY : out UNSIGNED(7 downto 0);
-		  PositionX : out UNSIGNED(7 downto 0);
+		  Speed : out UNSIGNED(11 downto 0);
+		  Size : out UNSIGNED(11 downto 0);
+		  PositionY : out UNSIGNED(11 downto 0);
+		  PositionX : out UNSIGNED(11 downto 0);
 		  CurrentVector : out STD_LOGIC_VECTOR(1 downto 0));
 end Ball;
 
 architecture BallArch of Ball is
-	constant max_speed : UNSIGNED(7 downto 0) := X"10"; -- TODO: Set according to gameplay
-	constant max_size : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Check proper max size later
+	constant max_speed : UNSIGNED(11 downto 0) := X"010"; -- TODO: Set according to gameplay
+	constant max_size : UNSIGNED(11 downto 0) := X"0FF"; -- TODO: Check proper max size later
 	
-	signal speed_int : UNSIGNED(7 downto 0) := X"01";
-	signal size_int : UNSIGNED(7 downto 0) := X"00";
-	signal positionY_int : UNSIGNED(7 downto 0) := X"80";
-	signal positionX_int : UNSIGNED(7 downto 0) := X"80";
+	signal speed_int : UNSIGNED(11 downto 0) := X"001";
+	signal size_int : UNSIGNED(11 downto 0) := X"000";
+	signal positionY_int : UNSIGNED(11 downto 0) := X"140";
+	signal positionX_int : UNSIGNED(11 downto 0) := X"0F0";
 	signal moveVector : STD_LOGIC_VECTOR(1 downto 0) := "10";
 begin
 	Speed <= speed_int;
@@ -58,19 +58,19 @@ begin
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
-				speed_int <= X"01";
-				size_int <= X"00";
+				speed_int <= X"001";
+				size_int <= X"000";
 			else
 				if SpeedUp = '1' and speed_int < max_speed then
 					speed_int <= speed_int + 1;
 				end if;
-				if SpeedDown = '1' and speed_int > X"01" then
+				if SpeedDown = '1' and speed_int > X"001" then
 					speed_int <= speed_int - 1;
 				end if;
 				if SizeUp = '1' and size_int < max_size then
 					size_int <= size_int + 1;
 				end if;
-				if SizeDown = '1' and size_int > X"00" then
+				if SizeDown = '1' and size_int > X"000" then
 					size_int <= size_int - 1;
 				end if;
 			end if;
@@ -84,8 +84,8 @@ begin
 				moveVector <= InputVector;
 			end if;
 			if Reset = '1' then
-				positionY_int <= X"80";
-				positionX_int <= X"80";
+				positionY_int <= X"140";
+				positionX_int <= X"140";
 			elsif Stop = '0' then
 				case moveVector is
 					when "00" =>
@@ -101,8 +101,8 @@ begin
 						positionY_int <= positionY_int + speed_int;
 						positionX_int <= positionX_int + speed_int;
 					when others =>
-						positionY_int <= X"80";
-						positionX_int <= X"80";
+						positionY_int <= X"140";
+						positionX_int <= X"140";
 				end case;
 			end if;
 		end if;

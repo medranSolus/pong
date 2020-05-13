@@ -25,18 +25,18 @@ entity CollisionManager is
 	port(Clk : in STD_LOGIC;
 		  Reset : in STD_LOGIC;
 		  BallVector : in STD_LOGIC_VECTOR(1 downto 0);
-		  BallSize : in UNSIGNED(7 downto 0);
-		  BallSpeed : in UNSIGNED(7 downto 0);
-		  BallPositionY : in UNSIGNED(7 downto 0);
-		  BallPositionX : in UNSIGNED(7 downto 0);
-		  PlayerLeftPosition : in UNSIGNED(7 downto 0);
-		  PlayerLeftSize : in UNSIGNED(7 downto 0);
-		  PlayerRightPosition : in UNSIGNED(7 downto 0);
-		  PlayerRightSize : in UNSIGNED(7 downto 0);
+		  BallSize : in UNSIGNED(11 downto 0);
+		  BallSpeed : in UNSIGNED(11 downto 0);
+		  BallPositionY : in UNSIGNED(11 downto 0);
+		  BallPositionX : in UNSIGNED(11 downto 0);
+		  PlayerLeftPosition : in UNSIGNED(11 downto 0);
+		  PlayerLeftSize : in UNSIGNED(11 downto 0);
+		  PlayerRightPosition : in UNSIGNED(11 downto 0);
+		  PlayerRightSize : in UNSIGNED(11 downto 0);
 		  PowerUpActive : in STD_LOGIC;
 		  PowerUpType : in STD_LOGIC_VECTOR(2 downto 0);
-		  PowerUpPositionY : in UNSIGNED(7 downto 0);
-		  PowerUpPositionX : in UNSIGNED(7 downto 0);
+		  PowerUpPositionY : in UNSIGNED(11 downto 0);
+		  PowerUpPositionX : in UNSIGNED(11 downto 0);
 		  SetBallVector : out STD_LOGIC;
 		  NewBallVector : out STD_LOGIC_VECTOR(1 downto 0);
 		  BallSpeedUp : out STD_LOGIC;
@@ -57,9 +57,9 @@ entity CollisionManager is
 end CollisionManager;
 
 architecture CollisionManagerArch of CollisionManager is
-	constant max_y : UNSIGNED(7 downto 0) := X"FF";
-	constant max_x : UNSIGNED(7 downto 0) := X"FF";
-	constant player_minimal_size : UNSIGNED(7 downto 0) := X"03"; -- Means total 7 length (3 on each side)
+	constant max_y : UNSIGNED(11 downto 0) := X"1DF";
+	constant max_x : UNSIGNED(11 downto 0) := X"27F";
+	constant player_minimal_size : UNSIGNED(11 downto 0) := X"003"; -- Means total 7 length (3 on each side)
 	
 	signal ball_vector : STD_LOGIC_VECTOR(1 downto 0);
 	
@@ -67,10 +67,10 @@ begin
 	NewBallVector <= ball_vector;
 	
 	process(Clk, Reset, BallVector, BallPositionY, BallPositionX, PlayerLeftPosition, PlayerRightPosition)
-		variable player_margin_up : UNSIGNED(7 downto 0) := X"00";
-		variable player_margin_down : UNSIGNED(7 downto 0) := X"00";
-		variable ball_margin_up : UNSIGNED(7 downto 0) := X"00";
-		variable ball_margin_down : UNSIGNED(7 downto 0) := X"00";
+		variable player_margin_up : UNSIGNED(11 downto 0) := X"000";
+		variable player_margin_down : UNSIGNED(11 downto 0) := X"000";
+		variable ball_margin_up : UNSIGNED(11 downto 0) := X"000";
+		variable ball_margin_down : UNSIGNED(11 downto 0) := X"000";
 	begin
 		if rising_edge(Clk) then
 			PlayerLeftScore <= '0';
@@ -134,8 +134,8 @@ begin
 	end process;
 	
 	process(Clk, ball_vector, BallPositionY, BallPositionX, PowerUpActive)
-		variable ball_next_y : UNSIGNED(7 downto 0) := X"00";
-		variable ball_next_x : UNSIGNED(7 downto 0) := X"00";
+		variable ball_next_y : UNSIGNED(11 downto 0) := X"000";
+		variable ball_next_x : UNSIGNED(11 downto 0) := X"000";
 	begin
 		if rising_edge(Clk) then
 			BallSpeedUp <= '0';

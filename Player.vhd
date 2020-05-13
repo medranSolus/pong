@@ -32,19 +32,19 @@ entity Player is
 			SizeDown : in STD_LOGIC;
 			Clk : in STD_LOGIC;
 			Score : out UNSIGNED(3 downto 0); -- Max = 9
-			Position : out UNSIGNED(7 downto 0); -- Top = FF; Down = 0; Mid = 7F
-			Size : out UNSIGNED(7 downto 0)); -- Size = 0 => Size = minimal size
+			Position : out UNSIGNED(11 downto 0); -- Top = 1DF; Down = 0; Mid = F0
+			Size : out UNSIGNED(11 downto 0)); -- Size = 0 => Size = minimal size
 end Player;
 
 architecture PlayerArch of Player is
-	constant max_speed : UNSIGNED(7 downto 0) := X"10"; -- TODO: Set according to gameplay
-	constant max_size : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Check proper max size later
-	constant max_position : UNSIGNED(7 downto 0) := X"FF"; -- TODO: Set according to display
+	constant max_speed : UNSIGNED(11 downto 0) := X"010"; -- TODO: Set according to gameplay
+	constant max_size : UNSIGNED(11 downto 0) := X"0FF"; -- TODO: Check proper max size later
+	constant max_position : UNSIGNED(11 downto 0) := X"1DF";
 	
 	signal score_int : UNSIGNED(3 downto 0) := X"0";
-	signal speed_int : UNSIGNED(7 downto 0) := X"01";
-	signal size_int : UNSIGNED(7 downto 0) := X"00"; -- TODO: Set default size for display
-	signal position_int : UNSIGNED(7 downto 0) := X"80";
+	signal speed_int : UNSIGNED(11 downto 0) := X"001";
+	signal size_int : UNSIGNED(11 downto 0) := X"000"; -- TODO: Set default size for display
+	signal position_int : UNSIGNED(11 downto 0) := X"0F0";
 begin
 	Score <= score_int;
 	Size <= size_int;
@@ -67,12 +67,12 @@ begin
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
-				speed_int <= X"01";
+				speed_int <= X"001";
 			else
 				if SpeedUp = '1' and speed_int < max_speed then
 					speed_int <= speed_int + 1;
 				end if;
-				if SpeedDown = '1' and speed_int > X"01" then
+				if SpeedDown = '1' and speed_int > X"001" then
 					speed_int <= speed_int - 1;
 				end if;
 			end if;
@@ -83,12 +83,12 @@ begin
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
-				size_int <= X"00";
+				size_int <= X"000";
 			else
 				if SizeUp = '1' and size_int < max_size then
 					size_int <= size_int + 1;
 				end if;
-				if SizeDown = '1' and size_int > X"00" then
+				if SizeDown = '1' and size_int > X"000" then
 					size_int <= size_int - 1;
 				end if;			
 			end if;
@@ -99,7 +99,7 @@ begin
 	begin
 		if rising_edge(Clk) then
 			if Reset = '1' then
-				position_int <= X"7F";
+				position_int <= X"0F0";
 			else
 				if Up = '1' and position_int + size_int <= max_position - speed_int then
 					position_int <= position_int + speed_int;

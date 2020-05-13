@@ -27,19 +27,19 @@ entity PowerUp is
 			TurnOff : in STD_LOGIC;
 			IsActive : out STD_LOGIC;
 			PowerType : out STD_LOGIC_VECTOR(2 downto 0);
-			PositionY : out UNSIGNED(7 downto 0);
-			PositionX : out UNSIGNED(7 downto 0));
+			PositionY : out UNSIGNED(11 downto 0);
+			PositionX : out UNSIGNED(11 downto 0));
 end PowerUp;
 
 architecture PowerUpArch of PowerUp is
-	constant max_y : UNSIGNED(7 downto 0) := X"F9"; -- Must be smaller than game arena
-	constant min_y : UNSIGNED(7 downto 0) := X"0A"; --|
-	constant max_x : UNSIGNED(7 downto 0) := X"F9"; --|
-	constant min_x : UNSIGNED(7 downto 0) := X"0A"; --/
+	constant max_y : UNSIGNED(11 downto 0) := X"1D9"; -- Must be smaller than game arena
+	constant min_y : UNSIGNED(11 downto 0) := X"00A"; --|
+	constant max_x : UNSIGNED(11 downto 0) := X"279"; --|
+	constant min_x : UNSIGNED(11 downto 0) := X"00A"; --/
 	
 	signal powerType_int : STD_LOGIC_VECTOR(2 downto 0) := "000";
-	signal positionY_int : UNSIGNED(7 downto 0) := X"00";
-	signal positionX_int : UNSIGNED(7 downto 0) := X"00";
+	signal positionY_int : UNSIGNED(11 downto 0) := X"000";
+	signal positionX_int : UNSIGNED(11 downto 0) := X"000";
 	
 	component RandGen is
 	port (Clk : in STD_LOGIC;
