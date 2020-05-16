@@ -111,31 +111,31 @@ begin
 				--vga_buffer0 <= (others => (others => VGA_Black));
 			end if;
 			
-			-- Write scores
+			-- Write scores (max 9)
 			case Player1Score is
-				when 0 =>
-				when 1 =>
-				when 2 =>
-				when 3 =>
-				when 4 =>
-				when 5 =>
-				when 6 =>
-				when 7 =>
-				when 8 =>
-				when 9 =>
+				when "0000" =>
+				when "0001" =>
+				when "0010" =>
+				when "0011" =>
+				when "0100" =>
+				when "0101" =>
+				when "0110" =>
+				when "0111" =>
+				when "1000" =>
+				when "1001" =>
 				when others =>
 			end case;
-			case Player1Score is
-				when 0 =>
-				when 1 =>
-				when 2 =>
-				when 3 =>
-				when 4 =>
-				when 5 =>
-				when 6 =>
-				when 7 =>
-				when 8 =>
-				when 9 =>
+			case Player2Score is
+				when "0000" =>
+				when "0001" =>
+				when "0010" =>
+				when "0011" =>
+				when "0100" =>
+				when "0101" =>
+				when "0110" =>
+				when "0111" =>
+				when "1000" =>
+				when "1001" =>
 				when others =>
 			end case;
 			
