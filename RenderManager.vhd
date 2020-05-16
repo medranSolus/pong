@@ -61,21 +61,112 @@ architecture RenderManagerArch of RenderManager is
 	type VGA_BUFFER is array (479 downto 0) of VGA_ROW;
 	signal vga_buffer0 : VGA_BUFFER := (others => (others => VGA_Black));
 	signal vga_buffer1 : VGA_BUFFER := (others => (others => VGA_Black));
-	signal vga_front_buffer : INTEGER range 0 to 1 := 1;
+	signal vga_front_buffer : INTEGER range 0 to 1 := 0;
 	
 	signal x_out : INTEGER range 0 to 639 := 0;
 	signal y_out : INTEGER range 0 to 479 := 0;
 begin
 	
-	process(Clk) -- Render thread, maybe change frequency..
+	process(Clk) -- Render thread, frequency?
 	begin
 		if rising_edge(Clk) then
-			Red <= vga_buffer0(y_out)(x_out)(2);
-			--Green <= vga_buffers(vga_front_buffer)(y_out)(x_out)(1);
-			--Blue <= vga_buffers(vga_front_buffer)(y_out)(x_out)(0);
+			if vga_front_buffer = 0 then
+				--Red <= vga_buffer0(y_out)(x_out)(2);
+				--Green <= vga_buffer0(y_out)(x_out)(1);
+				--Blue <= vga_buffer0(y_out)(x_out)(0);
+			else
+				--Red <= vga_buffer1(y_out)(x_out)(2);
+				--Green <= vga_buffer1(y_out)(x_out)(1);
+				--Blue <= vga_buffer1(y_out)(x_out)(0);
+			end if;
 			x_out <= x_out + 1;
 			if x_out = 0 then
 				y_out <= y_out + 1;
+			end if;
+		end if;
+	end process;
+	
+	process(Clk, Present, y_out) -- Present thread
+	begin
+		if rising_edge(Clk) and Present = '1' then
+			if y_out = 0 then
+				if vga_front_buffer = 0 then
+					--vga_buffer0 <= (others => (others => VGA_Black));
+				else
+					--vga_buffer1 <= (others => (others => VGA_Black));
+				end if;
+				vga_front_buffer <= vga_front_buffer + 1;
+			end if;
+		end if;
+	end process;
+	
+	-- Write thread
+	process(Clk, Player1Score, Player2Score, Player1Position, Player1Size, Player2Position, Player2Size, PowerUpActive, PowerUpType, BallPositionY, BallPositionX, BallSize, Pause, EndGame)
+	begin
+		if rising_edge(Clk) then
+			-- Clear buffer
+			if vga_front_buffer = 0 then
+				--vga_buffer1 <= (others => (others => VGA_Black));
+			else
+				--vga_buffer0 <= (others => (others => VGA_Black));
+			end if;
+			
+			-- Write scores
+			case Player1Score is
+				when 0 =>
+				when 1 =>
+				when 2 =>
+				when 3 =>
+				when 4 =>
+				when 5 =>
+				when 6 =>
+				when 7 =>
+				when 8 =>
+				when 9 =>
+				when others =>
+			end case;
+			case Player1Score is
+				when 0 =>
+				when 1 =>
+				when 2 =>
+				when 3 =>
+				when 4 =>
+				when 5 =>
+				when 6 =>
+				when 7 =>
+				when 8 =>
+				when 9 =>
+				when others =>
+			end case;
+			
+			-- Player1
+			
+			-- Player2
+			
+			if PowerUpActive = '1' then
+				case PowerUpType is
+					when "000" => -- Ball speed +
+					when "001" => -- Ball speed -
+					when "010" => -- Ball size +
+					when "011" => -- Ball size -
+					when "100" => -- Player speed +
+					when "101" => -- Player speed -
+					when "110" => -- Player size +
+					when "111" => -- Player size -
+					when others =>
+				end case;
+			end if;
+			
+			-- Ball
+			
+			-- Write 'P'
+			if Pause = '1' then
+			
+			end if;
+			
+			-- Write 'E'
+			if EndGame = '1' then
+			
 			end if;
 		end if;
 	end process;
