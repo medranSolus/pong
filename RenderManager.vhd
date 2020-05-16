@@ -158,6 +158,36 @@ begin
 			end if;
 			
 			-- Ball
+			if vga_front_buffer = 0 then
+				--vga_buffer1(to_integer(BallPositionY))(to_integer(BallPositionX)) <= VGA_Cyan;
+			else
+				--vga_buffer0(to_integer(BallPositionY))(to_integer(BallPositionX)) <= VGA_Cyan;
+			end if;
+			for i in 1 to 639 loop
+				exit when i > to_integer(BallSize);
+				for j in 1 to 639 loop
+					exit when j > to_integer(BallSize);
+					if vga_front_buffer = 0 then
+						--vga_buffer1(to_integer(BallPositionY - i))(to_integer(BallPositionX - j)) <= VGA_Cyan;
+						--vga_buffer1(to_integer(BallPositionY - i))(to_integer(BallPositionX + j)) <= VGA_Cyan;
+						--vga_buffer1(to_integer(BallPositionY + i))(to_integer(BallPositionX - j)) <= VGA_Cyan;
+						--vga_buffer1(to_integer(BallPositionY + i))(to_integer(BallPositionX + j)) <= VGA_Cyan;
+					else
+						--vga_buffer0(to_integer(BallPositionY - i))(to_integer(BallPositionX - j)) <= VGA_Cyan;
+						--vga_buffer0(to_integer(BallPositionY - i))(to_integer(BallPositionX + j)) <= VGA_Cyan;
+						--vga_buffer0(to_integer(BallPositionY + i))(to_integer(BallPositionX - j)) <= VGA_Cyan;
+						--vga_buffer0(to_integer(BallPositionY + i))(to_integer(BallPositionX + j)) <= VGA_Cyan;
+					end if;
+				end loop;
+				if vga_front_buffer = 0 then
+					--vga_buffer1(to_integer(BallPositionY - i))(to_integer(BallPositionX)) <= VGA_Cyan;
+					--vga_buffer1(to_integer(BallPositionY + i))(to_integer(BallPositionX)) <= VGA_Cyan;
+				else
+					--vga_buffer0(to_integer(BallPositionY - i))(to_integer(BallPositionX)) <= VGA_Cyan;
+					--vga_buffer0(to_integer(BallPositionY + i))(to_integer(BallPositionX)) <= VGA_Cyan;
+				end if;
+			end loop;
+			
 			
 			-- Write 'P'
 			if Pause = '1' then
