@@ -110,49 +110,910 @@ begin
 			else
 				--vga_buffer0 <= (others => (others => VGA_Black));
 			end if;
-			
 			-- Write scores (max 9)
 			case Player1Score is
 				when "0000" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0001" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0010" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+                        --vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0011" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+														for i in 1 to 100 loop
+								--vga_buffer0(to_integer(350)(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0100" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0101" =>
+				if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0110" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(300))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0111" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+							end loop;
+						end if;
 				when "1000" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "1001" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(300))(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when others =>
 			end case;
 			case Player2Score is
 				when "0000" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0001" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0010" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+                        --vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0011" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+														for i in 1 to 100 loop
+								--vga_buffer0(to_integer(350))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0100" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0101" =>
+				if vga_front_buffer = 0 then
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0110" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(390))(to_integer(100 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "0111" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+							end loop;
+						end if;
 				when "1000" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(390))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer( 340))(to_integer( 50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer( 390))(to_integer( 50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer( 340 + i))(to_integer( 50)) <= VGA_Green;
+								--vga_buffer0(to_integer( 340 + i))(to_integer( 100)) <= VGA_Green;
+								--vga_buffer0(to_integer( 340 + i))(to_integer( 150)) <= VGA_Green;
+							end loop;
+						end if;
 				when "1001" =>
+						if vga_front_buffer = 0 then
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(300))(to_integer(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer1(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						else
+							for i in 1 to 100 loop
+								--vga_buffer0(390))(50 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(340))(to_integer(50 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(50)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(100)) <= VGA_Green;
+								--vga_buffer0(to_integer(340 + i))(to_integer(150)) <= VGA_Green;
+							end loop;
+						end if;
 				when others =>
 			end case;
 			
-			-- Player1
-			
-			-- Player2
+			-- Player1 paddle
+			if vga_front_buffer = 0 then
+				for i in 5 to 9 loop
+					for j in 1 to (5 + to_integer(Player1Size)) loop
+						--vga_buffer1(to_integer(i))(to_integer(Player1Position + j - 2 - (Player1Size / 2))) <= VGA_Black;
+					end loop;
+				end loop;
+			else
+				for i in 5 to 9 loop
+					for j in 1 to (5 + to_integer(Player1Size)) loop
+						--vga_buffer0(to_integer(i))(to_integer(Player1Position + j - 2 - (Player1Size / 2))) <= VGA_Black;
+					end loop;
+				end loop;
+			end if;
+
+			-- Player2 paddle
+			if vga_front_buffer = 0 then
+				for i in 5 to 9 loop
+					for j in 1 to (5 + to_integer(Player2Size)) loop
+						--vga_buffer1(to_integer(i))(to_integer(Player2Position + j - 2 - (Player2Size / 2))) <= VGA_Black;
+					end loop;
+				end loop;
+			else
+				for i in 5 to 9 loop
+					for j in 1 to (5 + to_integer(Player1Size)) loop
+						--vga_buffer0(to_integer(i))(to_integer(Player2Position + j - 2 - (Player2Size / 2))) <= VGA_Black;
+					end loop;
+				end loop;
+			end if;
 			
 			if PowerUpActive = '1' then
 				case PowerUpType is
 					when "000" => -- Ball speed +
+						if vga_front_buffer = 0 then
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						else
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						end if;
 					when "001" => -- Ball speed -
+						if vga_front_buffer = 0 then
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						else
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						end if;
 					when "010" => -- Ball size +
+						if vga_front_buffer = 0 then
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						else
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						end if;
 					when "011" => -- Ball size -
+						if vga_front_buffer = 0 then
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						else
+							-- B
+							for i in 1 to 100 loop
+								--vga_buffer0(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(150 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						end if;
 					when "100" => -- Player speed +
+						if vga_front_buffer = 0 then
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						else
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						end if;
 					when "101" => -- Player speed -
+						if vga_front_buffer = 0 then
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						else
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- P
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(320 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(320 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(320))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						end if;
 					when "110" => -- Player size +
+						if vga_front_buffer = 0 then
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						else
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- +
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(425))(to_integer(375 + i)) <= VGA_Green;
+							end loop;
+						end if;
 					when "111" => -- Player size -
+						if vga_front_buffer = 0 then
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer1(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						else
+							-- P
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(150))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							for i in 1 to 50 loop
+								--vga_buffer1(to_integer(200))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer1(to_integer(150 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+							-- S
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(250))(to_integer(350 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(300))(to_integer(400 + i)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(350)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(400)) <= VGA_Green;
+								--vga_buffer0(to_integer(250 + i))(to_integer(450)) <= VGA_Green;
+							end loop;
+							-- I
+							for i in 1 to 100 loop
+								--vga_buffer1(to_integer(370))(to_integer(350 + i)) <= VGA_Green;
+							end loop;
+							-- -
+							for i in 1 to 50 loop
+								--vga_buffer0(to_integer(400 + i))(to_integer(400)) <= VGA_Green;
+							end loop;
+						end if;
 					when others =>
 				end case;
 			end if;
@@ -191,12 +1052,48 @@ begin
 			
 			-- Write 'P'
 			if Pause = '1' then
-			
+				if vga_front_buffer = 0 then
+					for i in 1 to 100 loop
+						--vga_buffer1(to_integer(295))(to_integer(190 + i)) <= VGA_Green;
+					end loop;
+					for i in 1 to 50 loop
+						--vga_buffer1(to_integer(345))(to_integer(190 + i)) <= VGA_Green;
+						--vga_buffer1(to_integer(295 + i))(to_integer(190)) <= VGA_Green;
+						--vga_buffer1(to_integer(295 + i))(to_integer(240)) <= VGA_Green;
+					end loop;
+				else
+					for i in 1 to 100 loop
+						--vga_buffer0(to_integer(295))(to_integer(190 + i)) <= VGA_Green;
+					end loop;
+					for i in 1 to 50 loop
+						--vga_buffer0(to_integer(345))(to_integer(190 + i)) <= VGA_Green;
+						--vga_buffer0(to_integer(295 + i))(to_integer(190)) <= VGA_Green;
+						--vga_buffer0(to_integer(295 + i))(to_integer(240)) <= VGA_Green;
+					end loop;					
+				end if;
 			end if;
 			
 			-- Write 'E'
 			if EndGame = '1' then
-			
+				if vga_front_buffer = 0 then
+					for i in 1 to 100 loop
+						--vga_buffer1(to_integer(295))(to_integer(190 + i)) <= VGA_Green;
+					end loop;
+					for i in 1 to 50 loop
+						--vga_buffer1(to_integer(295 + i))(to_integer(190)) <= VGA_Green;
+						--vga_buffer1(to_integer(295 + i))(to_integer(240)) <= VGA_Green;
+						--vga_buffer1(to_integer(295 + i))(to_integer(290)) <= VGA_Green;
+					end loop;
+				else
+					for i in 1 to 100 loop
+						--vga_buffer0(to_integer(295))(to_integer(190 + i)) <= VGA_Green;
+					end loop;
+					for i in 1 to 50 loop
+						--vga_buffer0(to_integer(295 + i))(to_integer(190)) <= VGA_Green;
+						--vga_buffer0(to_integer(295 + i))(to_integer(240)) <= VGA_Green;
+						--vga_buffer0(to_integer(295 + i))(to_integer(290)) <= VGA_Green;
+					end loop;					
+				end if;
 			end if;
 		end if;
 	end process;

@@ -1,0 +1,17 @@
+MODULE pong
+	SUBMODULE InputManager
+		INSTANCE Input
+	SUBMODULE Player
+		INSTANCE Player1
+	SUBMODULE Player
+		INSTANCE Player2
+	SUBMODULE PowerUp
+		INSTANCE Power
+	SUBMODULE CollisionManager
+		INSTANCE Collision
+	SUBMODULE RenderManager
+		INSTANCE Render
+	SUBMODULE Ball
+		INSTANCE Bally
+	SUBMODULE GameLogic
+		INSTANCE Game
