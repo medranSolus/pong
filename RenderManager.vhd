@@ -526,7 +526,7 @@ begin
 				end loop;
 			else
 				for i in 5 to 9 loop
-					for j in 1 to (5 + to_integer(Player1Size)) loop
+					for j in 1 to (5 + to_integer(Player2Size)) loop
 						--vga_buffer0(to_integer(i))(to_integer(Player2Position + j - 2 - (Player2Size / 2))) <= VGA_Black;
 					end loop;
 				end loop;
